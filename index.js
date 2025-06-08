@@ -21,18 +21,17 @@ setInterval(createHeart, 300);
 
 // Adicionar navegação aos botões
 document.addEventListener('DOMContentLoaded', () => {
-    const button = document.querySelector('.next-button');
-    const currentPath = window.location.pathname;
+    const button = document.querySelector('.big-button, .next-button');
     
     if (button) {
-        if (currentPath.includes('index2.html')) {
-            button.addEventListener('click', () => {
-                window.location.href = window.location.origin + window.location.pathname.replace('index2.html', 'index3.html');
-            });
-        } else if (!currentPath.includes('index3.html')) {
-            button.addEventListener('click', () => {
-                window.location.href = window.location.origin + window.location.pathname.replace('index.html', 'index2.html');
-            });
-        }
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        button.addEventListener('click', () => {
+            if (currentPage === 'index.html' || currentPage === '') {
+                window.location.href = './index2.html';
+            } else if (currentPage === 'index2.html') {
+                window.location.href = './index3.html';
+            }
+        });
     }
 });
