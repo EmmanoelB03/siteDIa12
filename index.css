@@ -362,3 +362,42 @@ body::before {
             text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
             text-align: left;
         }
+
+        .initial-heart {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 150px;
+    color: #ff3366;
+    z-index: 1000;
+    animation: initialHeartBeat 2s ease-in-out forwards;
+}
+
+.content-hidden {
+    opacity: 0;
+}
+
+.content-visible {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes initialHeartBeat {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(50);
+        opacity: 0;
+    }
+}

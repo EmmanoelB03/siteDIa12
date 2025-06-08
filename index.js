@@ -17,10 +17,24 @@ function createHeart() {
 }
 
 // Criar corações a cada 300ms
-setInterval(createHeart, 300);
+let heartInterval;
 
-// Adicionar navegação aos botões
+// Função para iniciar a animação dos corações
+function startHeartAnimation() {
+    heartInterval = setInterval(createHeart, 300);
+}
+
+// Adicionar navegação aos botões e controlar a animação inicial
 document.addEventListener('DOMContentLoaded', () => {
+    const mainContent = document.querySelector('.main-content');
+    
+    // Esperar a animação do coração inicial terminar
+    setTimeout(() => {
+        mainContent.classList.remove('content-hidden');
+        mainContent.classList.add('content-visible');
+        startHeartAnimation();
+    }, 2000); // 2 segundos, que é o tempo da animação do coração inicial
+
     const button = document.querySelector('.big-button, .next-button');
     
     if (button) {
