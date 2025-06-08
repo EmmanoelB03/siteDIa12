@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(45deg, #202124, #2c2c2e);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+.hearts-container {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+}
+
+.hearts-container::before,
+.hearts-container::after {
+    content: '❤';
+    color: #ff3366;
+    font-size: 30px;
+    position: absolute;
+    animation: float 4s linear infinite;
+    opacity: 0;
+}
+
+.hearts-container::before {
+    animation-delay: 2s;
+    left: 10%;
+}
+
+.hearts-container::after {
+    animation-delay: 0s;
+    left: 50%;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.big-button {
+            padding: 30px 60px;
+            font-size: 32px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #202124;
+            backdrop-filter: blur(5px);
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Helvetica Neue', sans-serif;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .big-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                       0 0 60px rgba(255, 255, 255, 0.3),
+                       0 0 90px rgba(255, 255, 255, 0.1);
+            background-color: #ffffff;
+        }
+
+        .big-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Estilos para o contador na página 3 */
+        .counter-container {
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .counter-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+            opacity: 0.9;
+        }
+
+        .counter {
+            font-size: 8rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 40px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeInSide 1.5s ease-out;
+        }
+
+        .links-container.left {
+            align-items: flex-end;
+        }
+
+        .links-container.right {
+            align-items: flex-start;
+        }
+
+        .youtube-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .youtube-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes fadeInSide {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .links-container.right {
+            animation: fadeInSideRight 1.5s ease-out;
+        }
+
+        @keyframes fadeInSideRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 768px) {
+            .page-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .counter {
+                font-size: 5rem;
+            }
+
+            .counter-title {
+                font-size: 2rem;
+            }
+
+            .links-container {
+                width: 100%;
+                align-items: center !important;
+            }
+
+            .youtube-link {
+                width: 80%;
+                text-align: center;
+                font-size: 0.8rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .links-container.left, .links-container.right {
+                animation: fadeInUp 1.5s ease-out;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .counter {
+                font-size: 4rem;
+            }
+
+            .counter-title {
+                font-size: 1.8rem;
+            }
+
+            .youtube-link {
+                width: 90%;
+                padding: 8px 15px;
+            }
+
+            .page-container {
+                padding: 10px;
+            }
+        }
+
+        /* Estilo específico para o botão na página da carta */
+        .next-button {
+            position: absolute;
+            bottom: 30px;
+            left: 60%;
+            transform: translateX(-50%);
+            z-index: 2;
+            background-color: #fff9f0;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.7rem;
+            color: #202124;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .next-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                       0 0 60px rgba(255, 255, 255, 0.3),
+                       0 0 90px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            padding-bottom: 100px;
+        }
+
+        .letter-container {
+            background: #fff9f0;
+            padding: 50px 50px 100px;
+            border-radius: 3px;
+            box-shadow: 
+                0 1px 1px rgba(0,0,0,0.1),
+                0 10px 30px rgba(0,0,0,0.15);
+            max-width: 600px;
+            width: 90%;
+            margin: 20px auto;
+            position: relative;
+            background-image: 
+                repeating-linear-gradient(#fff9f0 0px, #fff9f0 24px, #e0d4bc 25px);
+            background-size: 100% 25px;
+            transform: rotate(-1deg);
+            border: 1px solid #e0d4bc;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInButton {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        .next-button {
+            margin-top: 30px;
+            animation: fadeInButton 1.5s ease-out 1s forwards;
+            opacity: 0;
+            padding: 15px 30px;
+            font-size: 20px;
+        }
+
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.7);
+            z-index: 1;
+        }
+
+        .letter-text {
+            position: relative;
+            z-index: 2;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.7rem;
+            line-height: 1.47;
+            color: #2c2c2e;
+            margin: 0;
+            padding: 0 15px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+            text-align: left;
+        }

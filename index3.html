@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia 12 - Página 3</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="hearts-container"></div>
+    <div class="page-container">
+        <div class="links-container left">
+            
+            <a href="https://youtu.be/gyh7lUYXBYg?si=spvfLAr2gt_HfSp8" target="_blank" class="youtube-link">Gal Costa - Palavras No Corpo</a>
+             <a href="https://youtu.be/yMwi16KYqFo?si=iQtuftHLPRpvNFX7" target="_blank" class="youtube-link">Belo -  Amor Dos Deuses</a>
+            <a href="https://youtu.be/qbcdz-chTz4?si=KVODZpOtqFBMgoAA" target="_blank" class="youtube-link">Exalta - Telegrama</a>
+        </div>
+        <div class="counter-container">
+            <div class="counter-title">Dias te amando</div>
+            <div class="counter" id="daysCounter">0</div>
+        </div>
+        <div class="links-container right">
+            <a href="https://youtu.be/3XdvlE4w3bk?si=B2nUrDnG0HeHKXHh" target="_blank" class="youtube-link">Los Hermanos - O Último Romance</a>
+            <a href="https://youtu.be/hqWWiGZfay8?si=QbYnX5k_-VGWnSkI" target="_blank" class="youtube-link">Martinho da Vila - Disritmia</a>
+            <a href="https://youtu.be/xlJ69RJpYn4?si=rDxdPls658F8OEJk" target="_blank" class="youtube-link">Belo - Perfume</a>
+        </div>
+    </div>
+    <script>
+        function updateCounter() {
+            const startDate = new Date(2024, 4, 5); // Mês é 0-based, então 4 = maio
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('daysCounter').textContent = diffDays;
+        }
+
+        // Atualiza o contador imediatamente e a cada 24 horas
+        updateCounter();
+        setInterval(updateCounter, 1000 * 60 * 60 * 24);
+    </script>
+</body>
+</html>
