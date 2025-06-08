@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (button) {
         if (currentPath.includes('index2.html')) {
             button.addEventListener('click', () => {
-                window.location.href = 'index3.html';
+                window.location.href = window.location.origin + window.location.pathname.replace('index2.html', 'index3.html');
             });
         } else if (!currentPath.includes('index3.html')) {
             button.addEventListener('click', () => {
-                window.location.href = 'index2.html';
+                window.location.href = window.location.origin + window.location.pathname.replace('index.html', 'index2.html');
             });
         }
     }
