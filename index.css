@@ -387,17 +387,21 @@ body::before {
     0% {
         transform: translate(-50%, -50%) scale(0);
         opacity: 0;
+        z-index: 1000;
     }
     50% {
         transform: translate(-50%, -50%) scale(1.2);
         opacity: 1;
+        z-index: 1000;
     }
     70% {
         transform: translate(-50%, -50%) scale(0.9);
         opacity: 1;
+        z-index: 1000;
     }
     100% {
         transform: translate(-50%, -50%) scale(50);
         opacity: 0;
+        z-index: -1;
     }
 }
